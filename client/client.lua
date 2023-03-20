@@ -4,6 +4,7 @@ local config = require("clientconfig")
 local component = require("component")
 local shell = require("shell")
 local util = require("coolutils")
+local event = require("event")
 local client = {}
 
 
@@ -14,7 +15,7 @@ function client:export()
     end
 end
 
-function client.handleBroadcas(_,from, port, data)
+function client.handleBroadcast(_,from, port, data)
     if port == client.msPort then
         if data == "getRemotes" then
             util.callLater(1, function() rpc.call(client.msHostname, "registerRemote", client.hostname) end)

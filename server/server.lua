@@ -63,3 +63,5 @@ function server.init()
     server.getAllRemotes()
     rpc.register("registerRemote", server.registerRemote) 
 end
+
+return server
